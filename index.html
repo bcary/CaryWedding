@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -6,12 +7,107 @@
     <title></title>
     <meta name="description" content="Brian and Chelsy">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../fonts/printbold_regular_macroman/stylesheet.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="../fonts/printclearly_regular_macroman/stylesheet.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="../css/Site.css">
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="../scripts/bootstrap.min.js"></script>
+    <script src="../scripts/firebaseapp.js"></script>
+    <script src="../scripts/parallax.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCACvNR04gB2HyUySEBojfPNPcDTLswHjY&libraries=places&callback=initMap">
+    </script>
+    <script src="../scripts/app.js"></script>
 </head>
 
 <body>
-<script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
-<script src="./firebaseapp.js"/></script>
 
+<div class="parallax-container"
+     data-parallax="scroll"
+     data-position="bottom"
+     data-bleed="10"
+     data-image-src="../images/102.jpg"
+     data-natural-width="3500"
+     data-natural-height="2333">
+
+    <img id="logo" src="../images/CandBlogo.png" />
+</div>
+
+<section id="ourstory">
+    <div class="container">
+        <!--<h1>Our Story</h1>-->
+        <p>The adventure of Brian and Chelsy begins over a decade ago, as members of the Divine Shepherd Youth Group.</p>
+        <p class="fa fa-clock-o" aria-hidden="true"></p>
+        <p>Chelsy saw how manly and humorous Brian was while they went on mission trips to Colorado.</p>
+        <p class="fa fa-male" aria-hidden="true"></p>
+        <p>After Chelsy moved to Norfolk, the duo periodically kept in touch over the next twelve years.  She secretly knew she had met her true love.</p>
+        <p class="fa fa-comments" aria-hidden="true"></p>
+        <p>Brian was incredibly lucky to reconnect with Chelsy on a first date at the Berry and Rye in Omaha.</p>
+        <p class="fa fa-glass" aria-hidden="true"></p>
+        <p>On a picnic for Chelsy's Birthday, Brian was instructing Chelsy on the finer points of skipping rocks. Chelsy misfired and nailed Brian right in the face.</p>
+        <p class="fa fa-birthday-cake" aria-hidden="true"></p>
+        <p>He secretly knew he had met his true love.</p>
+        <p class="fa fa-heart-o" aria-hidden="true"></p>
+        <br />
+        <br />
+        <p style="font-size:small"><em>Photography courtesy of <a href="http://www.mullersphoto.com/" target="_blank">The Mullers</a></em></p>
+    </div>
+</section>
+
+<div class="parallax-container" 
+     data-parallax="scroll" 
+     data-bleed="10" 
+     data-speed="0.2" 
+     data-image-src="../images/134.jpg" 
+     data-natural-width="3500" 
+     data-natural-height="2333"></div>
+
+<section id="thedetails">
+    <div class="container">
+        <h2>The Details</h2>
+        <div class="row">
+            <div id="weddingDetails" class="col-md-6">
+                <h2>Saturday, May 27, 2017</h2>
+                <h2>4:30 in the afternoon</h2>
+                <h3>Wilderness Ridge</h3>
+                <h4>1800 Wilderness Ridge Woods Place<br />Lincoln, NE 68512</h4>
+            </div>
+            <div class="col-md-6">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="parallax-container" 
+     data-parallax="scroll" 
+     data-bleed="10" 
+     data-speed="0.2" 
+     data-image-src="../images/164.jpg" 
+     data-natural-width="3500" 
+     data-natural-height="2333"></div>
+
+<section id="rsvp">
+    <div class="container">
+        <h3>RSVP</h3>
+        <form id="rsvpform">
+            <button id="addguest" type="button" class="btn btn-default" onclick="addGuest();">Add Guest</button>
+            <div id="guestcontainer"></div>
+            <button id="rsvp" type="button" class="btn btn-primary" onclick="save();">RSVP</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        &copy; Brian Cary
+    </div>
+</footer>
 
 
 </body>

@@ -1,0 +1,10 @@
+{
+  "name": "carywedding",
+  "version": "1.0.0",
+  "description": "for my love",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brian Cary",
+  "license": "ISC"
+}

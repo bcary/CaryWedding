@@ -1,0 +1,81 @@
+﻿i{
+  text-align: center;
+  margin-bottom: 5px;
+}
+p{
+  font-size: 24px;
+  font-family: 'print_boldregular';
+}
+h1{
+  font-size: 72px;
+  font-family: 'print_clearlyregular';
+}
+h2{
+  font-size: 60px;
+  font-family: 'print_clearlyregular';
+}
+h3{
+  font-size: 48px;
+  font-family: 'print_clearlyregular';
+}
+h4{
+  font-size: 36px;
+  font-family: 'print_clearlyregular';
+}
+h5{
+  font-size: 24px;
+  font-family: 'print_clearlyregular';
+}
+img {
+    
+}
+section {
+  padding: 25px 0 35px;
+  background: #fff;
+  text-align:center;
+  font-size:large;
+}
+.parallax-container {
+  height: 500px;
+  width: 100%;
+}
+#logo {
+  height: 100px;
+  width: 150px;
+  display: block;
+  margin: auto;
+}
+#thedetails {
+  background-color: #f0fff8;
+background-image: url(http://www.transparenttextures.com/patterns/arches.png);
+}
+#ourstory {
+background-color: #f0fff8;
+background-image: url(http://www.transparenttextures.com/patterns/arches.png);
+}
+
+#map {
+  height: 400px;
+  padding: 40px !important; 
+}
+
+#weddingDetails{
+  text-align: center;
+  vertical-align: middle;
+}
+footer {
+  background: #000;
+  color: #ddd;
+  padding: 30px 0 30px;
+  text-align: center;
+}
+
+footer a {
+  color: #ddd;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #eee;
+  text-decoration: underline;
+}
