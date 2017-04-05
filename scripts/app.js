@@ -1,3 +1,14 @@
+$(document).ready(function(){
+    $("#rsvpEmail").keyup(function(){
+        if ($('#rsvpEmail').val()){
+            $('#emailEnteredButton').prop('disabled', false);
+        } else {
+            $('#emailEnteredButton').prop('disabled', true);
+            $('#addGuestButton').hide();
+        }
+    });
+});
+
 function initMap() {
     var wildernessRidge = {lat: 40.72201, lng: -96.6953297};
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -27,31 +38,45 @@ function initMap() {
     });
 }
 
+function emailEntered(){
+    $('#addGuestButton').show();
+}
+
 function addGuest() {
     var newGuest = $('<div class="guest form-inline" id="guest">' +
                         '<label class="sr-only" for="name">Guest Name</label>' +
-                        '<input type="text" class="name form-control" style="margin:10px;" placeholder="Guest Name">' +
+                        '<input type="text" class="name form-control" style="margin:10px;" placeholder="Guest Full Name">' +
                         '<label class="sr-only" for="foodchoice">Menu Option</label>' +
-                        '<select class="foodchoice form-control">' +
+                        '<select class="foodchoice form-control" style="margin:10px;">' +
                             '<option disabled selected value>Meal Choice</option>' +
                             '<option value="1">Chipotle Rubbed Pot Roast</option>' +
                             '<option value="2">Chicken Garlic Parmesean</option>' +
                             '<option value="3">Pasta Giardiniera (Vegetarian)</option>' +
                         '</select>' +
-                        '<i id="deleteguest" style="margin:10px; cursor: pointer;" title="" class="deleteguest fa fa-minus-circle" aria-hidden="true"></i>' +
+                        '<i id="deleteguest" style="margin:10px; cursor: pointer;" title="Delete Guest" class="deleteguest fa fa-minus-circle" aria-hidden="true"></i>' +
                     '</div>');
     $('#guestcontainer').append(newGuest);
 
+    if ($('.guest').length > 0) {
+        $('#rsvpButton').show();
+    }
+
     $('.deleteguest').click(function() {
         $(this).parent().remove();
+        if ($('.guest').length > 0) {
+            $('#rsvpButton').show();
+        } else {
+            $('#rsvpButton').hide();
+        }
     });
 }
 
 function save() {
     var reservation = {};
     //TODO see if cookie exists, and get reservation id 
-    var keyFromCookie = '-KgqzAgZI4QGmm5SfBeN';
+    var keyFromCookie;
     reservation.submitted = new Date().toUTCString();
+    reservation.email = $('#rsvpEmail').val();
     reservation.guests = [];
     $('.guest').each(function(i, obj) {
         var newGuest = {};
@@ -68,8 +93,4 @@ function save() {
     console.log('Reservation update: ' + data);
 
     return firebase.database().ref().update(updates);
-}
-
-if (!Date.now) {
-    Date.now = function() { return new Date().getTime(); }
 }

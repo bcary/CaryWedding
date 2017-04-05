@@ -96,9 +96,21 @@
     <div class="container">
         <h3>RSVP</h3>
         <form id="rsvpform">
-            <button id="addguest" type="button" class="btn btn-default" onclick="addGuest();">Add Guest</button>
+            <div class="row">
+                <div class="col-xs-4 col-xs-offset-4">
+                    <div class="input-group">
+                        <input id="rsvpEmail" type="text" class="form-control" placeholder="Email Address">
+                        <span class="input-group-btn">
+                            <button id="emailEnteredButton" class="btn btn-secondary" type="button" onclick="emailEntered();" disabled="true">Next</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <button id="addGuestButton" type="button" class="btn btn-default" onclick="addGuest();" style="display: none;">Add Guest</button>
+            </div>
             <div id="guestcontainer"></div>
-            <button id="rsvp" type="button" class="btn btn-primary" onclick="save();">RSVP</button>
+            <button id="rsvpButton" type="button" class="btn btn-primary" onclick="save();" style="display: none;">RSVP</button>
         </form>
     </div>
 </section>
