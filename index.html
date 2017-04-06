@@ -33,23 +33,25 @@
      data-bleed="10"
      data-image-src="../images/102.jpg"
      data-natural-width="3500"
-     data-natural-height="2333">
+     data-natural-height="2333" style="text-align: center;">
 
-    <img id="logo" src="../images/CandBlogo.png" />
+     <span class="centerHelper"></span>
+     <img id="logo" src="../images/CandBlogo.png" />
+
 </div>
 
 <section id="ourstory">
     <div class="container">
         <!--<h1>Our Story</h1>-->
-        <p>The adventure of Brian and Chelsy begins over a decade ago, as members of the Divine Shepherd Youth Group.</p>
+        <p>The adventure of Brian and Chelsy began over a decade ago, as members of the Divine Shepherd Youth Group.</p>
         <p class="fa fa-clock-o" aria-hidden="true"></p>
-        <p>Chelsy saw how manly and humorous Brian was while they went on mission trips to Colorado.</p>
-        <p class="fa fa-male" aria-hidden="true"></p>
-        <p>After Chelsy moved to Norfolk, the duo periodically kept in touch over the next twelve years.  She secretly knew she had met her true love.</p>
+        <p>Chelsy saw how manly and humorous Brian was while they were on mission trips to Colorado.<br>Brian enjoyed impressing Chelsy at every opportunity.</p>
+        <p class="fa fa-picture-o" aria-hidden="true"></p>
+        <p>After Chelsy moved to Norfolk, the duo periodically chatted throughout the next twelve years.<br>She secretly knew she had met her true love.</p>
         <p class="fa fa-comments" aria-hidden="true"></p>
         <p>Brian was incredibly lucky to reconnect with Chelsy on a first date at the Berry and Rye in Omaha.</p>
         <p class="fa fa-glass" aria-hidden="true"></p>
-        <p>On a picnic for Chelsy's Birthday, Brian was instructing Chelsy on the finer points of skipping rocks. Chelsy misfired and nailed Brian right in the face.</p>
+        <p>While on a picnic for Chelsy's Birthday, Brian was instructing Chelsy on the finer points of skipping rocks.<br>Chelsy misfired and beaned Brian right in the face.</p>
         <p class="fa fa-birthday-cake" aria-hidden="true"></p>
         <p>He secretly knew he had met his true love.</p>
         <p class="fa fa-heart-o" aria-hidden="true"></p>
@@ -95,23 +97,22 @@
 <section id="rsvp">
     <div class="container">
         <h3>RSVP</h3>
-        <form id="rsvpform">
-            <div class="row">
-                <div class="col-xs-4 col-xs-offset-4">
-                    <div class="input-group">
-                        <input id="rsvpEmail" type="text" class="form-control" placeholder="Email Address">
-                        <span class="input-group-btn">
-                            <button id="emailEnteredButton" class="btn btn-secondary" type="button" onclick="emailEntered();" disabled="true">Next</button>
-                        </span>
-                    </div>
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+                <div class="input-group">
+                    <input id="rsvpEmail" type="text" class="form-control" placeholder="Email Address">
+                    <span class="input-group-btn">
+                        <button id="emailEnteredButton" class="btn btn-secondary" type="button" onclick="emailEntered();" disabled="true">Next</button>
+                    </span>
                 </div>
             </div>
-            <div class="row">
-                <button id="addGuestButton" type="button" class="btn btn-default" onclick="addGuest();" style="display: none;">Add Guest</button>
-            </div>
-            <div id="guestcontainer"></div>
-            <button id="rsvpButton" type="button" class="btn btn-primary" onclick="save();" style="display: none;">RSVP</button>
-        </form>
+        </div>
+        <div class="row">
+            <button id="addGuestButton" type="button" class="btn btn-default" onclick="addGuest();" style="display:none;">Add Guest</button>
+        </div>
+        <div id="guestcontainer"></div>
+        <button id="rsvpButton" type="button" class="btn btn-primary" onclick="save();" style="display:none;">RSVP</button>
+        <i id="checkmark" class="fa fa-check fa-3x" aria-hidden="true"></i>
     </div>
 </section>
 

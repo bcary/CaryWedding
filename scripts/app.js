@@ -2,12 +2,15 @@ $(document).ready(function(){
     $("#rsvpEmail").keyup(function(){
         if ($('#rsvpEmail').val()){
             $('#emailEnteredButton').prop('disabled', false);
+            $('#rsvpEmail').val($('#rsvpEmail').val().toLowerCase());
         } else {
             $('#emailEnteredButton').prop('disabled', true);
             $('#addGuestButton').hide();
         }
     });
 });
+
+var newReservation = false;
 
 function initMap() {
     var wildernessRidge = {lat: 40.72201, lng: -96.6953297};
@@ -40,9 +43,24 @@ function initMap() {
 
 function emailEntered(){
     $('#addGuestButton').show();
+
+    var ref = firebase.database().ref("reservations/" + getKeyFromEmail($('#rsvpEmail').val()));
+
+    ref.once('value').then(function(snapshot) {
+        if(snapshot.exists()){
+            var foundReservation = JSON.parse(snapshot.val());
+            if (foundReservation.guests.length > 0){
+                $.each(foundReservation.guests, function(i, foundGuest){
+                    addGuest(foundGuest);
+                });
+            }
+        } else {
+            newReservation = true;
+        }
+    });
 }
 
-function addGuest() {
+function addGuest(item) {
     var newGuest = $('<div class="guest form-inline" id="guest">' +
                         '<label class="sr-only" for="name">Guest Name</label>' +
                         '<input type="text" class="name form-control" style="margin:10px;" placeholder="Guest Full Name">' +
@@ -53,9 +71,15 @@ function addGuest() {
                             '<option value="2">Chicken Garlic Parmesean</option>' +
                             '<option value="3">Pasta Giardiniera (Vegetarian)</option>' +
                         '</select>' +
-                        '<i id="deleteguest" style="margin:10px; cursor: pointer;" title="Delete Guest" class="deleteguest fa fa-minus-circle" aria-hidden="true"></i>' +
+                        '<i id="deleteguest" style="margin:10px; cursor: pointer;" title="Delete Guest" class="deleteguest fa fa-times fa-2x" aria-hidden="true"></i>' +
                     '</div>');
     $('#guestcontainer').append(newGuest);
+
+    if (item){
+        $(newGuest).find('.name').val(item.guestName);
+        $(newGuest).find('.foodchoice').val(item.guestFoodChoice);
+        $('#rsvpButton').html('Update RSVP');
+    }
 
     if ($('.guest').length > 0) {
         $('#rsvpButton').show();
@@ -63,18 +87,21 @@ function addGuest() {
 
     $('.deleteguest').click(function() {
         $(this).parent().remove();
-        if ($('.guest').length > 0) {
-            $('#rsvpButton').show();
-        } else {
+        if ($('.guest').length === 0 && newReservation) {
             $('#rsvpButton').hide();
+        } else {
+            $('#rsvpButton').show();
         }
     });
 }
 
+function getKeyFromEmail(userInput){
+    return userInput.replace(/\./g, '');
+}
+
 function save() {
     var reservation = {};
-    //TODO see if cookie exists, and get reservation id 
-    var keyFromCookie;
+
     reservation.submitted = new Date().toUTCString();
     reservation.email = $('#rsvpEmail').val();
     reservation.guests = [];
@@ -84,13 +111,22 @@ function save() {
         newGuest.guestFoodChoice = $(obj).find('select.foodchoice').val();
         reservation.guests.push(newGuest);
     });
-    var reservationKey = keyFromCookie ? keyFromCookie : firebase.database().ref().child('reservations').push().key;
-    var data = JSON.stringify(reservation); 
 
+    var data = JSON.stringify(reservation); 
     var updates = {};
-    updates['/reservations/' + reservationKey] = data;
+    updates['/reservations/' + getKeyFromEmail($('#rsvpEmail').val())] = data;
 
     console.log('Reservation update: ' + data);
 
-    return firebase.database().ref().update(updates);
+    firebase.database().ref().update(updates, function(error) {
+        if(!error){
+            newReservation = false;
+            $('#guestcontainer').empty();
+            $('#rsvpEmail').val('')
+            $('#rsvpButton').hide();
+            $('#addGuestButton').hide();
+            $('#checkmark').show();
+            $('#checkmark').fadeOut(2000);
+        }
+    });
 }
