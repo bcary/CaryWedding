@@ -40,6 +40,9 @@ section {
   height: 500px;
   width: 100%;
 }
+.guest div {
+  margin-top: 5px;
+}
 #logo {
   height: 150px;
   width: 225px;
@@ -79,10 +82,12 @@ section {
 #addGuestButton {
   margin-top: 10px;
   margin-right: 40px;
+  width: 120px;
 }
 #rsvpButton {
   margin-top: 10px;
   margin-left: 20px;
+  width: 120px;
 }
 #emailEnteredButton {
   margin-bottom: 10px;
