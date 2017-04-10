@@ -1,4 +1,7 @@
-﻿i{
+﻿body {
+  overflow-x:hidden;
+}
+i{
   text-align: center;
   margin-bottom: 5px;
 }
