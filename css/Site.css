@@ -7,7 +7,7 @@ p{
   font-family: 'print_boldregular';
 }
 h1{
-  font-size: 72px;
+  font-size: 80px;
   font-family: 'print_clearlyregular';
 }
 h2{
@@ -28,7 +28,8 @@ h5{
 }
 section {
   padding: 25px 0 35px;
-  background: #fff;
+  background-image: url(../images/arches.png);
+  background-color: #f0fff8;
   text-align:center;
   font-size:large;
 }
@@ -46,17 +47,25 @@ section {
     height: 100%;
     vertical-align: middle;
 }
+
+#rsvp {
+  min-height: 300px;
+}
+
 #thedetails {
-  background-color: #f0fff8;
-background-image: url(http://www.transparenttextures.com/patterns/arches.png);
+
 }
 #ourstory {
-background-color: #f0fff8;
-background-image: url(http://www.transparenttextures.com/patterns/arches.png);
+  text-align: center;
+  text-justify: inter-word;
+}
+
+#registry {
+  min-height: 350px;
 }
 
 #map {
-  height: 400px;
+  height: 350px;
   padding: 40px !important; 
 }
 
@@ -64,9 +73,20 @@ background-image: url(http://www.transparenttextures.com/patterns/arches.png);
   text-align: center;
   vertical-align: middle;
 }
-
-#addGuestButton{
+#addGuestButton {
   margin-top: 10px;
+  margin-right: 40px;
+}
+#rsvpButton {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+#emailEnteredButton {
+  margin-bottom: 10px;
+}
+
+#registryImage {
+  margin: auto;
 }
 
 #checkmark{

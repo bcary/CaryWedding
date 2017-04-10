@@ -71,7 +71,7 @@ function addGuest(item) {
                             '<option value="2">Chicken Garlic Parmesean</option>' +
                             '<option value="3">Pasta Giardiniera (Vegetarian)</option>' +
                         '</select>' +
-                        '<i id="deleteguest" style="margin:10px; cursor: pointer;" title="Delete Guest" class="deleteguest fa fa-times fa-2x" aria-hidden="true"></i>' +
+                        '<i id="deleteguest" style="margin:10px; cursor: pointer;" title="Delete Guest" class="deleteguest fa fa-times fa-lg" aria-hidden="true"></i>' +
                     '</div>');
     $('#guestcontainer').append(newGuest);
 
@@ -92,7 +92,9 @@ function addGuest(item) {
         } else {
             $('#rsvpButton').show();
         }
+        $(window).trigger('resize.px.parallax');
     });
+    $(window).trigger('resize.px.parallax');
 }
 
 function getKeyFromEmail(userInput){
@@ -127,6 +129,7 @@ function save() {
             $('#addGuestButton').hide();
             $('#checkmark').show();
             $('#checkmark').fadeOut(2000);
+            $(window).trigger('resize.px.parallax');
         }
     });
 }

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../fonts/printbold_regular_macroman/stylesheet.css" type="text/css" charset="utf-8">
     <link rel="stylesheet" href="../fonts/printclearly_regular_macroman/stylesheet.css" type="text/css" charset="utf-8">
+    <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../css/Site.css">
 
     <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
@@ -32,67 +33,12 @@
      data-position="bottom"
      data-bleed="10"
      data-image-src="../images/102.jpg"
-     data-natural-width="3500"
-     data-natural-height="2333" style="text-align: center;">
+     data-natural-width="1920"
+     data-natural-height="1280" style="text-align: center;">
 
      <span class="centerHelper"></span>
      <img id="logo" src="../images/CandBlogo.png" />
-
 </div>
-
-<section id="ourstory">
-    <div class="container">
-        <!--<h1>Our Story</h1>-->
-        <p>The adventure of Brian and Chelsy began over a decade ago, as members of the Divine Shepherd Youth Group.</p>
-        <p class="fa fa-clock-o" aria-hidden="true"></p>
-        <p>Chelsy saw how manly and humorous Brian was while they were on mission trips to Colorado.<br>Brian enjoyed impressing Chelsy at every opportunity.</p>
-        <p class="fa fa-picture-o" aria-hidden="true"></p>
-        <p>After Chelsy moved to Norfolk, the duo periodically chatted throughout the next twelve years.<br>She secretly knew she had met her true love.</p>
-        <p class="fa fa-comments" aria-hidden="true"></p>
-        <p>Brian was incredibly lucky to reconnect with Chelsy on a first date at the Berry and Rye in Omaha.</p>
-        <p class="fa fa-glass" aria-hidden="true"></p>
-        <p>While on a picnic for Chelsy's Birthday, Brian was instructing Chelsy on the finer points of skipping rocks.<br>Chelsy misfired and beaned Brian right in the face.</p>
-        <p class="fa fa-birthday-cake" aria-hidden="true"></p>
-        <p>He secretly knew he had met his true love.</p>
-        <p class="fa fa-heart-o" aria-hidden="true"></p>
-        <br />
-        <br />
-        <p style="font-size:small"><em>Photography courtesy of <a href="http://www.mullersphoto.com/" target="_blank">The Mullers</a></em></p>
-    </div>
-</section>
-
-<div class="parallax-container" 
-     data-parallax="scroll" 
-     data-bleed="10" 
-     data-speed="0.2" 
-     data-image-src="../images/134.jpg" 
-     data-natural-width="3500" 
-     data-natural-height="2333"></div>
-
-<section id="thedetails">
-    <div class="container">
-        <h2>The Details</h2>
-        <div class="row">
-            <div id="weddingDetails" class="col-md-6">
-                <h2>Saturday, May 27, 2017</h2>
-                <h2>4:30 in the afternoon</h2>
-                <h3>Wilderness Ridge</h3>
-                <h4>1800 Wilderness Ridge Woods Place<br />Lincoln, NE 68512</h4>
-            </div>
-            <div class="col-md-6">
-                <div id="map"></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="parallax-container" 
-     data-parallax="scroll" 
-     data-bleed="10" 
-     data-speed="0.2" 
-     data-image-src="../images/164.jpg" 
-     data-natural-width="3500" 
-     data-natural-height="2333"></div>
 
 <section id="rsvp">
     <div class="container">
@@ -107,12 +53,137 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <button id="addGuestButton" type="button" class="btn btn-default" onclick="addGuest();" style="display:none;">Add Guest</button>
-        </div>
         <div id="guestcontainer"></div>
-        <button id="rsvpButton" type="button" class="btn btn-primary" onclick="save();" style="display:none;">RSVP</button>
+        <div class="row">
+            <button id="addGuestButton" type="button" class="btn btn-default float-left" onclick="addGuest();" style="display:none;">Add Guest</button>
+            <button id="rsvpButton" type="button" class="btn btn-primary float-right" onclick="save();" style="display:none;">RSVP</button>
+        </div>
         <i id="checkmark" class="fa fa-check fa-3x" aria-hidden="true"></i>
+    </div>
+</section>
+
+<div class="parallax-container" 
+     data-parallax="scroll" 
+     data-bleed="10" 
+     data-speed="0.2" 
+     data-image-src="../images/134.jpg" 
+     data-natural-width="1920" 
+     data-natural-height="1280">
+</div>
+
+<section id="thedetails">
+    <div class="container">
+        <h1 style="font-family: 'Great Vibes';">The Details</h1>
+        <div class="row">
+            <div id="weddingDetails" class="col-md-6">
+                <h3>Saturday, May 27, 2017</h3>
+                <h3>4:30 in the afternoon</h3>
+                <h4>Wilderness Ridge</h4>
+                <h5>1800 Wilderness Ridge Woods Place<br />Lincoln, NE 68512</h5>
+            </div>
+            <div class="col-md-6">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="parallax-container" 
+     data-parallax="scroll" 
+     data-bleed="10" 
+     data-speed="0.2" 
+     data-image-src="../images/107.jpg" 
+     data-natural-width="1920" 
+     data-natural-height="1280">
+</div>
+
+<section id="ourstory">
+    <div class="container">
+        <h1 style="font-family: 'Great Vibes';">Our Story</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <h4>They Met</h4>
+                <p>In 2005, Chelsy and Brian met when they were placed in the same van fpr a mission trip to Colorado.
+                Before they had even left the state, they had to be separated because they were fighting so much and Chelsy had thrown gummy bears at Brian.
+                Love at first sight?</p>
+            </div>
+            <div class="col-md-4">
+                <h4>They Fell In Love</h4>
+                <p>Being the sweet man he is, Brian planned a picnic for Chelsy's 25th birthday (Bird Day).
+                <!--<p>He had champagne, lunch, and brand new knives so he could cut the bread in front of her like a gentleman.</p>-->
+                They decided to skip rocks, which Chelsy had no idea how to do.
+                She threw it like a frisbee and hit Brian inn the nose.
+                Struck by love!</p>
+            </div>
+            <div class="col-md-4">
+                <h4>They Got Engaged</h4>
+                <p>Chelsy had been given a jar for Christmas with 90 reasons why Brian loved her, with the last one taped to the bottom.
+                <!--<p>The last note invited Chelsy to another Birthday picnic, and was a perfect misdirection that Brian used to throw her off the scent of the engagment.</p>-->
+                A week after the 90th note, Brian successfully surprised Chelsy while teeing up a golf ball on the range at the Links in Lincoln.
+                She looked down to find him on one knee with a ring box in his hand!</p>
+            </div>
+        </div>
+        <!--<p class="fa fa-clock-o" aria-hidden="true"></p>-->
+        <!--<p>Chelsy saw how manly and humorous Brian was while they were on mission trips to Colorado.<br>Brian enjoyed impressing Chelsy at every opportunity.</p>
+        <p class="fa fa-picture-o" aria-hidden="true"></p>
+        <p>After Chelsy moved to Norfolk, the duo periodically chatted throughout the next twelve years.<br>She secretly knew she had met her true love.</p>
+        <p class="fa fa-comments" aria-hidden="true"></p>
+        <p>Brian was incredibly lucky to reconnect with Chelsy on a first date at the Berry and Rye in Omaha.</p>
+        <p class="fa fa-glass" aria-hidden="true"></p>
+        <p>While on a picnic for Chelsy's Birthday, Brian was instructing Chelsy on the finer points of skipping rocks.<br>Chelsy misfired and beaned Brian right in the face.</p>
+        <p class="fa fa-birthday-cake" aria-hidden="true"></p>
+        <p>He secretly knew he had met his true love.</p>
+        <p class="fa fa-heart-o" aria-hidden="true"></p>-->
+        <br />
+        <br />
+        <p style="font-size:small"><em>Photography courtesy of <a href="http://www.mullersphoto.com/" target="_blank">The Mullers</a></em></p>
+    </div>
+</section>
+
+<div class="parallax-container" 
+     data-parallax="scroll" 
+     data-bleed="10" 
+     data-speed="0.2" 
+     data-image-src="../images/164.jpg" 
+     data-natural-width="1920" 
+     data-natural-height="1280">
+</div>
+
+<section id="registry">
+    <div id="container">
+        <h1 style="font-family: 'Great Vibes';">Registry</h1>
+        <div class="row">
+            <a class="registryImage col-md-4" href="https://www.bedbathandbeyond.com/store/giftregistry/view_registry_guest.jsp?pwsToken=&eventType=Wedding&inventoryCallEnabled=true&registryId=543963711" target="_blank">
+                <img src="../images/bbb_logo.png" alt="Bed Bath and Beyond Registry" width="250" height="250" border="0">
+            </a>
+            <a class="registryImage col-md-4" href="https://www-secure.target.com/gift-registry/giftgiver?registryId=xIh6GfpYXQr4LI_b69u6PA&type=wedding&occasionType=&lnk=regPreview#1" target="_blank">
+                <img src="../images/target_logo.png" alt="Target Registry" width="250" height="250" border="0">
+            </a>
+            <a class="registryImage col-md-4" href="http://www.travelersjoy.com/brianchelsy" target="_blank">
+                <img src="../images/travelersjoy_logo.png" alt="Traveler's Joy' Registry" width="250" height="250" border="0">
+            </a>
+        </div>
+    </div>
+</section>
+
+<div class="parallax-container" 
+     data-parallax="scroll" 
+     data-bleed="10" 
+     data-speed="0.2" 
+     data-image-src="../images/15.jpg" 
+     data-natural-width="1920" 
+     data-natural-height="1280">
+</div>
+
+<section id="hotelinfo">
+    <div id="container">
+        <h1 style="font-family: 'Great Vibes';">Hotel Information</h1>
+        <div class="row">
+            <p>A block of rooms has been reserved for the Cary Wedding at the</p>
+            <a href="https://goo.gl/maps/63XYyxkzrp62" target="_blank"><h3>Holiday Inn Lincoln Southwest</h3></a>
+            <h4>2500 Tamarin Ridge Road<br />Lincoln, NE 68512</h4>
+            <h5>(402) 421-1893</h5>
+        </div>
     </div>
 </section>
 
