@@ -20,10 +20,10 @@
     <script src="../scripts/bootstrap.min.js"></script>
     <script src="../scripts/firebaseapp.js"></script>
     <script src="../scripts/parallax.js"></script>
+    <script src="../scripts/app.js"></script>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCACvNR04gB2HyUySEBojfPNPcDTLswHjY&libraries=places&callback=initMap">
     </script>
-    <script src="../scripts/app.js"></script>
 </head>
 
 <body>
@@ -55,8 +55,12 @@
         </div>
         <div id="guestcontainer"></div>
         <div class="row">
-            <button id="addGuestButton" type="button" class="btn btn-default float-left" onclick="addGuest();" style="display:none;">Add Guest</button>
-            <button id="rsvpButton" type="button" class="btn btn-primary float-right" onclick="save();" style="display:none;">RSVP</button>
+            <div class="col-md-4 col-md-offset-2 col-xs-6">
+                <button id="addGuestButton" type="button" class="btn btn-default float-left" onclick="addGuest();" style="display:none;">Add Guest</button>
+            </div>
+            <div class="col-md-4 col-xs-6">
+                <button id="rsvpButton" type="button" class="btn btn-primary float-right" onclick="save();" style="display:none;">RSVP</button>
+            </div>
         </div>
         <i id="checkmark" class="fa fa-check fa-3x" aria-hidden="true"></i>
         <div class="bottom-align-text">
@@ -118,7 +122,7 @@
                 <p>Being the sweet man he is, Brian planned a picnic for Chelsy's 25th birthday (Bird Day).
                 <!--<p>He had champagne, lunch, and brand new knives so he could cut the bread in front of her like a gentleman.</p>-->
                 They decided to skip rocks, which Chelsy had no idea how to do.
-                She threw it like a frisbee and hit Brian inn the nose.
+                She threw it like a frisbee and hit Brian in the nose.
                 Struck by love!</p>
             </div>
             <div class="col-md-4">
@@ -129,17 +133,6 @@
                 She looked down to find him on one knee with a ring box in his hand!</p>
             </div>
         </div>
-        <!--<p class="fa fa-clock-o" aria-hidden="true"></p>-->
-        <!--<p>Chelsy saw how manly and humorous Brian was while they were on mission trips to Colorado.<br>Brian enjoyed impressing Chelsy at every opportunity.</p>
-        <p class="fa fa-picture-o" aria-hidden="true"></p>
-        <p>After Chelsy moved to Norfolk, the duo periodically chatted throughout the next twelve years.<br>She secretly knew she had met her true love.</p>
-        <p class="fa fa-comments" aria-hidden="true"></p>
-        <p>Brian was incredibly lucky to reconnect with Chelsy on a first date at the Berry and Rye in Omaha.</p>
-        <p class="fa fa-glass" aria-hidden="true"></p>
-        <p>While on a picnic for Chelsy's Birthday, Brian was instructing Chelsy on the finer points of skipping rocks.<br>Chelsy misfired and beaned Brian right in the face.</p>
-        <p class="fa fa-birthday-cake" aria-hidden="true"></p>
-        <p>He secretly knew he had met his true love.</p>
-        <p class="fa fa-heart-o" aria-hidden="true"></p>-->
         <br />
         <br />
         <p style="font-size:small"><em>Photography courtesy of <a href="http://www.mullersphoto.com/" target="_blank">The Mullers</a></em></p>
@@ -156,7 +149,7 @@
 </div>
 
 <section id="registry">
-    <div id="container">
+    <div class="container">
         <h1 style="font-family: 'Great Vibes';">Registry</h1>
         <div class="row">
             <a class="registryImage col-md-4" href="https://www.bedbathandbeyond.com/store/giftregistry/view_registry_guest.jsp?pwsToken=&eventType=Wedding&inventoryCallEnabled=true&registryId=543963711" target="_blank">
@@ -182,7 +175,7 @@
 </div>
 
 <section id="hotelinfo">
-    <div id="container">
+    <div class="container">
         <h1 style="font-family: 'Great Vibes';">Hotel Information</h1>
         <div class="row">
             <p class="col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">A block of rooms has been reserved for the Cary Wedding at the</p>

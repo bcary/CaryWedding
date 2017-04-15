@@ -43,7 +43,7 @@ function initMap() {
 }
 
 function emailEntered(){
-    $('#addGuestButton').show();
+    $('#guestcontainer').empty();
 
     var ref = firebase.database().ref("reservations/" + getKeyFromEmail($('#rsvpEmail').val()));
 
@@ -51,51 +51,69 @@ function emailEntered(){
         if(snapshot.exists()){
             var foundReservation = JSON.parse(snapshot.val());
             if (foundReservation.guests.length > 0){
+                $('#rsvpButton').html('Update RSVP');
                 $.each(foundReservation.guests, function(i, foundGuest){
                     addGuest(foundGuest);
                 });
             }
+            $('#addGuestButton').show();
         } else {
             newReservation = true;
+            $('#rsvpButton').html('RSVP');
+            addGuest();
+            $('#addGuestButton').show();
         }
     });
 }
 
 function addGuest(item) {
-    var newGuest = $('<div class="guest form-inline" id="guest">' +
-                        '<label class="sr-only" for="name">Guest Name</label>' +
-                        '<input type="text" class="name form-control" style="margin:10px;" placeholder="Guest Full Name">' +
-                        '<label class="sr-only" for="foodchoice">Menu Option</label>' +
-                        '<select class="foodchoice form-control" style="margin:10px;">' +
-                            '<option disabled selected value>Meal Choice</option>' +
-                            '<option value="1">Chipotle Rubbed Pot Roast</option>' +
-                            '<option value="2">Chicken Garlic Parmesean</option>' +
-                            '<option value="3">Pasta Giardiniera (Vegetarian)</option>' +
-                        '</select>' +
-                        '<i id="deleteguest" style="margin:10px; cursor: pointer;" title="Delete Guest" class="deleteguest fa fa-times fa-lg" aria-hidden="true"></i>' +
-                    '</div>');
-    $('#guestcontainer').append(newGuest);
+    if ($('.guest').length <= 8) {
+        var newGuest = $('<div class="guest row" id="guest">' +
+                            '<div class="col-md-offset-2 col-md-4">' +
+                                '<label class="sr-only" for="name">Guest Name</label>' +
+                                '<input type="text" class="name form-control" placeholder="Full Name">' +
+                            '</div>' +
+                            '<div class="col-md-4">' +
+                                '<label class="sr-only" for="foodchoice">Menu Option</label>' +
+                                '<select class="foodchoice form-control">' +
+                                    '<option disabled selected value>Meal Choice</option>' +
+                                    '<option value="1">Chipotle Rubbed Pot Roast</option>' +
+                                    '<option value="2">Chicken Garlic Parmesean</option>' +
+                                    '<option value="3">Pasta Giardiniera (Vegetarian)</option>' +
+                                '</select>' +
+                            '</div>' +
+                            '<div class="col-md-1">' +
+                                '<i id="deleteguest" cursor: pointer;" title="Delete Guest" class="deleteguest fa fa-times fa-lg" aria-hidden="true"></i>' +
+                            '</div>' +
+                        '</div>');
+        $('#guestcontainer').append(newGuest);
 
-    if (item){
-        $(newGuest).find('.name').val(item.guestName);
-        $(newGuest).find('.foodchoice').val(item.guestFoodChoice);
-        $('#rsvpButton').html('Update RSVP');
-    }
+        if (item){
+            $(newGuest).find('.name').val(item.guestName);
+            $(newGuest).find('.foodchoice').val(item.guestFoodChoice);
+        }
 
-    if ($('.guest').length > 0) {
-        $('#rsvpButton').show();
-    }
-
-    $('.deleteguest').click(function() {
-        $(this).parent().remove();
-        if ($('.guest').length === 0 && newReservation) {
-            $('#rsvpButton').hide();
-        } else {
+        if ($('.guest').length > 0) {
             $('#rsvpButton').show();
         }
+        if ($('.guest').length >= 8) {
+            $('#addGuestButton').hide();
+        }
+
+        $('.deleteguest').click(function() {
+            $(this).parent().parent().remove();
+            if ($('.guest').length === 0 && newReservation) {
+                $('#rsvpButton').hide();
+            } else {
+                $('#rsvpButton').show();
+            }
+            if ($('.guest').length < 8) {
+                $('#addGuestButton').show();
+            }
+            $(window).trigger('resize.px.parallax');
+        });
         $(window).trigger('resize.px.parallax');
-    });
-    $(window).trigger('resize.px.parallax');
+    }
 }
 
 function getKeyFromEmail(userInput){
