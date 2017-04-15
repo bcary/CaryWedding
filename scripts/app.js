@@ -44,8 +44,9 @@ function initMap() {
 
 function emailEntered(){
     $('#guestcontainer').empty();
-
-    var ref = firebase.database().ref("reservations/" + getKeyFromEmail($('#rsvpEmail').val()));
+    $('#regretsDiv').hide();
+    $('#rsvpConfirmationMessage').hide();
+    var ref = firebase.database().ref("reservations/" + getKeyFromInput($('#rsvpEmail').val().trim()));
 
     ref.once('value').then(function(snapshot) {
         if(snapshot.exists()){
@@ -116,7 +117,7 @@ function addGuest(item) {
     }
 }
 
-function getKeyFromEmail(userInput){
+function getKeyFromInput(userInput){
     return userInput.replace(/\./g, '');
 }
 
@@ -135,7 +136,7 @@ function save() {
 
     var data = JSON.stringify(reservation); 
     var updates = {};
-    updates['/reservations/' + getKeyFromEmail($('#rsvpEmail').val())] = data;
+    updates['/reservations/' + getKeyFromInput($('#rsvpEmail').val().trim())] = data;
 
     console.log('Reservation update: ' + data);
 
@@ -146,6 +147,7 @@ function save() {
             $('#rsvpEmail').val('')
             $('#rsvpButton').hide();
             $('#addGuestButton').hide();
+            $('#rsvpConfirmationMessage').show();
             $('#checkmark').show();
             $('#checkmark').fadeOut(2000);
             $(window).trigger('resize.px.parallax');
@@ -154,14 +156,41 @@ function save() {
 }
 
 function cantMakeIt() {
-    $('#regretName').show();
-    $('#regretMessage').show();
-    $('#regretButton').show();
+    $('#regretsName').show();
+    $('#regretsMessage').show();
+    $('#regretsButton').show();
+    $('#regretsHeader').show();
+    $('#regretsLink').hide();
+    $('#rsvpButton').hide();
+    $('#rsvpEmail').hide();
+    $('#emailEnteredButton').hide();
+    
 }
 
 function saveRegret() {
     
     var regret = {};
     regret.submitted = new Date().toUTCString();
+    regret.name = $('#regretsName').val().trim();
+    regret.message = $('#regretsMessage').val();
+
+    var data = JSON.stringify(regret); 
+    var updates = {};
+    updates['/regrets/' + getKeyFromInput($('#regretsName').val().trim())] = data;
+
+    console.log('Regrets update: ' + data);
+
+    firebase.database().ref().update(updates, function(error) {
+        if(!error){
+            newReservation = false;
+            $('#regretsName').hide();
+            $('#regretsMessage').hide();
+            $('#regretsButton').hide();
+            $('#regretsLink').hide();
+            $('#regretsHeader').hide();
+            $('#regretsConfirmationMessage').show();
+            $(window).trigger('resize.px.parallax');
+        }
+    });
     
 }

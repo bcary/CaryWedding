@@ -89,6 +89,12 @@ section {
   margin-left: 20px;
   width: 120px;
 }
+#regretsLink{
+  cursor: pointer;
+}
+#regretsDiv{
+  margin-top:50px;
+}
 #emailEnteredButton {
   margin-bottom: 10px;
 }
