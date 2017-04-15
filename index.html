@@ -40,8 +40,8 @@
      <img id="logo" src="../images/CandBlogo.png" />
 </div>
 
-<section id="rsvp">
-    <div class="container">
+<section >
+    <div id="rsvp" class="container">
         <h3>RSVP</h3>
         <div class="row">
             <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
@@ -59,6 +59,12 @@
             <button id="rsvpButton" type="button" class="btn btn-primary float-right" onclick="save();" style="display:none;">RSVP</button>
         </div>
         <i id="checkmark" class="fa fa-check fa-3x" aria-hidden="true"></i>
+        <div class="bottom-align-text">
+            <a id="regretsLink">Can't Make It!</a>
+            <input id="regretName" type="text" class="form-control" placeholder="Name" style="display:none;">
+            <input id="regretMessage" type="textarea" class="form-control" placeholder="Message" style="display:none;">
+            <button id="regretButton" type="button" class="btn btn-primary" onclick="saveRegret();" style="display:none;">RSVP</button>
+        </div>
     </div>
 </section>
 

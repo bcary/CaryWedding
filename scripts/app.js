@@ -8,6 +8,7 @@ $(document).ready(function(){
             $('#addGuestButton').hide();
         }
     });
+    $("#regretsLink").click(function(e) {e.preventDefault(); cantMakeIt(); return false; });
 });
 
 var newReservation = false;
@@ -132,4 +133,17 @@ function save() {
             $(window).trigger('resize.px.parallax');
         }
     });
+}
+
+function cantMakeIt() {
+    $('#regretName').show();
+    $('#regretMessage').show();
+    $('#regretButton').show();
+}
+
+function saveRegret() {
+    
+    var regret = {};
+    regret.submitted = new Date().toUTCString();
+    
 }
