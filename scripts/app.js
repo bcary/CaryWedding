@@ -164,7 +164,7 @@ function cantMakeIt() {
     $('#rsvpButton').hide();
     $('#rsvpEmail').hide();
     $('#emailEnteredButton').hide();
-    
+    $(window).trigger('resize.px.parallax');
 }
 
 function saveRegret() {
