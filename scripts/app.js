@@ -2,7 +2,6 @@ $(document).ready(function(){
     $("#rsvpEmail").keyup(function(){
         if ($('#rsvpEmail').val()){
             $('#emailEnteredButton').prop('disabled', false);
-            $('#rsvpEmail').val($('#rsvpEmail').val().toLowerCase());
         } else {
             $('#emailEnteredButton').prop('disabled', true);
             $('#addGuestButton').hide();
@@ -118,7 +117,7 @@ function addGuest(item) {
 }
 
 function getKeyFromInput(userInput){
-    return userInput.replace(/\./g, '');
+    return userInput.replace(/\./g, '').toLowerCase();;
 }
 
 function save() {
