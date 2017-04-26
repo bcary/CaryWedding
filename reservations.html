@@ -8,10 +8,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="../fonts/printbold_regular_macroman/stylesheet.css" type="text/css" charset="utf-8">
+        <!--<link rel="stylesheet" href="../fonts/printbold_regular_macroman/stylesheet.css" type="text/css" charset="utf-8">
         <link rel="stylesheet" href="../fonts/printclearly_regular_macroman/stylesheet.css" type="text/css" charset="utf-8">
         <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="../css/Site.css">
+        <link rel="stylesheet" href="../css/Site.css">-->
         <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
         <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
         <script src="../scripts/firebaseappreservationauth.js"></script>
@@ -19,8 +19,21 @@
     </head>
     <body>
         <div class="container">
-            <button onclick="go();">Go</button>
-            <div id="reservationsContainer"></div>
+            <br>
+            <div class="row">
+                <input class="col-md-2 col-md-offset-3" id="username" type="text" placeholder="Email Address">
+                <input class="col-md-2" id="password" type="password" placeholder="Password">
+                <button class="col-md-2" onclick="signIn();">Who's Coming!?</button>
+            </div>
+            <br>
+            <div class="row">
+                <h2 id="attendingcount"></h2>
+            </div>
+            <table id="reservationsContainer"></table>
+            <div class="row">
+                <h2 id="regretcount"></h2>
+            </div>
+            <table id="regretsContainer"></table>
         </div>
     </body>
 </html>

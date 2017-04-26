@@ -8,19 +8,3 @@ var config = {
 };
 
 firebase.initializeApp(config);
-
-firebase.auth().signInWithEmailAndPassword('brian.cary1@gmail.com', 'Bcng4db1').catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-});
-
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in.
-    var isAnonymous = user.isAnonymous;
-    var uid = user.uid;
-  } else {
-    // User is signed out.
-  }
-});
