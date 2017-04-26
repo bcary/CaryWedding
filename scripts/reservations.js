@@ -1,11 +1,3 @@
-// firebase.auth().signOut().then(function() {
-//   // Sign-out anonymous
-// }).catch(function(error) {
-//   // An error happened.
-// });
-
-
-
 function signIn(){
   firebase.auth().signInWithEmailAndPassword($('#username').val(), $('#password').val()).catch(function(error) {
     // Handle Errors here.
@@ -13,22 +5,23 @@ function signIn(){
     var errorMessage = error.message;
   });
 }
-
-
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
     go();
   } else {
     // User is signed out.
+    $('#reservationsContainer').empty();
+    $('#regretsContainer').empty();
   }
 });
 
 function go(){
     var ref = firebase.database().ref("reservations").orderByChild('submitted');
-    var yesCount = 0;
-    var noCount = 0;
-    ref.once('value', function(snapshot){
+    
+    ref.on('value', function(snapshot){
+        var yesCount = 0;
+        var noCount = 0;
         var reservationArray = [];
         snapshot.forEach(function(child){
             if(child){
@@ -41,23 +34,25 @@ function go(){
             var bdate = Date.parse(b.submitted);
             return bdate - adate;
         });
+        $('#reservationsContainer').empty();
         $.each(reservationArray, function(i, item){
             addReservation(item);
             yesCount = yesCount + item.guests.length;
         });
         $('#attendingcount').text('Yes Count: ' + yesCount.toString());
-    }, function(error){
-        console.error(error);
-    });
 
-    var regretsReference = firebase.database().ref("regrets")
-    regretsReference.once('value', function(snapshot){
-        snapshot.forEach(function(child){
-            var foundRegret = JSON.parse(child.val());
-            addRegret(foundRegret);
-            noCount = noCount + 1;
+        var regretsReference = firebase.database().ref("regrets")
+        $('#regretsContainer').empty();
+        regretsReference.once('value', function(snapshot){
+            snapshot.forEach(function(child){
+                var foundRegret = JSON.parse(child.val());
+                addRegret(foundRegret);
+                noCount = noCount + 1;
+            });
+            $('#regretcount').text('No Count: ' + noCount.toString());
+        }, function(error){
+            console.error(error);
         });
-         $('#regretcount').text('No Count: ' + noCount.toString());
     }, function(error){
         console.error(error);
     });
@@ -93,16 +88,9 @@ function addReservation(reservation){
                 default:
                     $(newGuest).find('.foodchoice').text('Didn\'t choose!!');
             }
-            // $(newReservation).append(newGuest);
             $('#reservationsContainer').append(newGuest);
         });
-        // var submittedHtml = $('<td>' +
-        //                             '<h5 class="time" style="margin:10px;"></h5>' +
-        //                     '</td');
-        // $(submittedHtml).find('.time').text(reservation.submitted);
-        // $('#reservationsContainer').append(submittedHtml);
     }
-    
 }
 
 function addRegret(regret){
